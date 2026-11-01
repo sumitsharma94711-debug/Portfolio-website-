@@ -1,0 +1,344 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Sumit Kumar Sharma Portfolio</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: sticky top bar with five hash-routed views (Home, About, Skills, Projects, Contact), one view visible at a time. */
+:root {
+  --bg: #f2f5f7;
+  --surface: #ffffff;
+  --fg: #0e1a2b;
+  --muted: #56657a;
+  --line: #d9e0e7;
+  --accent: #0a7d78;
+  --accent-ink: #ffffff;
+  --accent-soft: #dff1ef;
+  --mark: #e8a317;
+  --err: #b42318;
+  --ok-bg: #dcf3e4;
+  --ok-fg: #14532d;
+  --display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0b131f; --surface: #121e2e; --fg: #e8eef5; --muted: #93a3b8; --line: #243449;
+    --accent: #3cc7bf; --accent-ink: #062321; --accent-soft: #123a3a; --mark: #f0b53a;
+    --err: #ff8a7a; --ok-bg: #12351f; --ok-fg: #9be3b4; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0b131f; --surface: #121e2e; --fg: #e8eef5; --muted: #93a3b8; --line: #243449;
+  --accent: #3cc7bf; --accent-ink: #062321; --accent-soft: #123a3a; --mark: #f0b53a;
+  --err: #ff8a7a; --ok-bg: #12351f; --ok-fg: #9be3b4; color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--fg); font-family: var(--body); font-size: 16px; line-height: 1.6;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 0 40px;
+}
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--bg); }
+a { color: var(--accent); }
+h1, h2, h3 { font-family: var(--display); line-height: 1.12; margin: 0; text-wrap: balance; letter-spacing: -0.01em; }
+p { margin: 0; }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+.wrap { max-width: 1040px; margin: 0 auto; }
+
+/* Top bar */
+.bar {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: var(--bg);
+  border-bottom: 1px solid var(--line);
+  margin-inline: calc(-1 * max(16px, env(safe-area-inset-left, 0px)));
+  padding-inline: max(16px, env(safe-area-inset-left, 0px));
+}
+.bar .wrap { display: flex; align-items: center; justify-content: space-between; gap: 12px 24px; flex-wrap: wrap; padding-block: 10px; }
+.brand { font-family: var(--display); font-weight: 800; font-size: 1.15rem; color: var(--fg); text-decoration: none; letter-spacing: -0.01em; }
+.brand b { color: var(--accent); font-weight: 800; }
+nav { display: flex; gap: 2px; overflow-x: auto; max-width: 100%; }
+nav a {
+  font-family: var(--mono); font-size: 0.82rem; font-weight: 500; color: var(--muted); text-decoration: none;
+  padding: 8px 12px; border-radius: 6px; white-space: nowrap; border-bottom: 2px solid transparent;
+}
+nav a:hover { color: var(--fg); background: var(--accent-soft); }
+nav a[aria-current="page"] { color: var(--fg); border-bottom-color: var(--accent); }
+
+/* Views */
+.view { padding-block: 48px 24px; }
+.eyebrow { font-family: var(--mono); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent); margin-bottom: 14px; }
+.lede { color: var(--muted); max-width: 60ch; margin-top: 16px; font-size: 1.05rem; }
+h2.title { font-size: clamp(1.9rem, 5vw, 2.8rem); }
+
+/* Home */
+.hero { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 40px; align-items: center; }
+.hero h1 { font-size: clamp(2.5rem, 8vw, 4.6rem); font-weight: 800; }
+.hero h1 span { display: block; color: var(--accent); }
+.btns { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+.btn {
+  display: inline-block; font: 600 0.95rem var(--body); padding: 12px 20px; border-radius: 8px; text-decoration: none; cursor: pointer;
+  border: 2px solid var(--accent); background: var(--accent); color: var(--accent-ink);
+}
+.btn:hover { filter: brightness(1.08); }
+.btn.alt { background: transparent; color: var(--accent); }
+.btn.alt:hover { background: var(--accent-soft); filter: none; }
+.id-card { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 22px; }
+.id-card .mono { font-family: var(--mono); font-size: 0.8rem; color: var(--muted); }
+.initials {
+  width: 92px; height: 92px; border-radius: 50%; background: var(--accent); color: var(--accent-ink);
+  display: grid; place-items: center; font: 800 2rem var(--display); margin-bottom: 18px; border: 4px solid var(--mark);
+}
+.id-card dl { margin: 14px 0 0; display: grid; gap: 10px; }
+.id-card dt { font-family: var(--mono); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); }
+.id-card dd { margin: 0; font-weight: 500; overflow-wrap: anywhere; }
+.strip { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 16px; margin-top: 56px; }
+.strip > div { border-top: 3px solid var(--mark); padding-top: 12px; }
+.strip h3 { font-size: 1.1rem; margin-bottom: 4px; }
+.strip p { color: var(--muted); font-size: 0.95rem; }
+
+/* About */
+.two { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; margin-top: 32px; }
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 24px; min-width: 0; }
+.panel h3 { font-size: 1.25rem; margin-bottom: 12px; }
+.panel p + p { margin-top: 12px; }
+.timeline { list-style: none; margin: 0; padding: 0 0 0 18px; border-left: 2px solid var(--line); display: grid; gap: 20px; }
+.timeline li { position: relative; }
+.timeline li::before { content: ""; position: absolute; left: -24px; top: 7px; width: 10px; height: 10px; border-radius: 50%; background: var(--mark); }
+.timeline b { display: block; font-weight: 600; }
+.timeline small { font-family: var(--mono); font-size: 0.78rem; color: var(--muted); }
+
+/* Skills */
+.skill { margin-top: 18px; }
+.skill-row { display: flex; justify-content: space-between; gap: 12px; font-weight: 500; margin-bottom: 6px; }
+.skill-row span:last-child { font-family: var(--mono); font-size: 0.85rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+.track { height: 10px; background: var(--line); border-radius: 99px; overflow: hidden; }
+.fill { height: 100%; background: var(--accent); border-radius: 99px; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip { font-family: var(--mono); font-size: 0.8rem; background: var(--accent-soft); color: var(--fg); padding: 5px 11px; border-radius: 6px; }
+.panel h3.sp { margin-top: 24px; }
+
+/* Projects */
+.grid3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; margin-top: 32px; }
+.proj { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 22px; display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+.proj .tag { font-family: var(--mono); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); }
+.proj h3 { font-size: 1.25rem; }
+.proj p { color: var(--muted); font-size: 0.95rem; flex: 1; }
+.proj.todo { border-style: dashed; background: transparent; }
+
+/* Contact */
+form { display: grid; gap: 16px; }
+label { display: block; font-weight: 600; font-size: 0.9rem; margin-bottom: 6px; }
+input, textarea {
+  width: 100%; font: inherit; color: var(--fg); background: var(--bg); border: 1.5px solid var(--line); border-radius: 8px; padding: 11px 13px;
+}
+input:focus, textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
+input[aria-invalid="true"], textarea[aria-invalid="true"] { border-color: var(--err); }
+.err { color: var(--err); font-size: 0.85rem; min-height: 1.2em; margin-top: 4px; }
+.ok { background: var(--ok-bg); color: var(--ok-fg); border-radius: 8px; padding: 12px 14px; font-weight: 500; }
+.contact-list { display: grid; gap: 14px; margin: 0; }
+.contact-list dt { font-family: var(--mono); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); }
+.contact-list dd { margin: 2px 0 0; font-weight: 500; overflow-wrap: anywhere; }
+
+footer { margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.88rem; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; }
+
+@media (max-width: 760px) {
+  .hero, .two { grid-template-columns: minmax(0, 1fr); }
+  .view { padding-block: 32px 16px; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .view:not([hidden]) { animation: rise 0.35s ease-out; }
+  @keyframes rise { from { opacity: 0.4; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+}
+</style>
+
+<header class="bar">
+  <div class="wrap">
+    <a class="brand" href="#home">Sumit<b>.</b>Sharma</a>
+    <nav aria-label="Main">
+      <a href="#home" data-link="home">Home</a>
+      <a href="#about" data-link="about">About</a>
+      <a href="#skills" data-link="skills">Skills</a>
+      <a href="#projects" data-link="projects">Projects</a>
+      <a href="#contact" data-link="contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="view" id="home" data-view="home">
+    <div class="hero">
+      <div>
+        <p class="eyebrow">Web Development Intern &middot; Up2Skilln</p>
+        <h1>Sumit Kumar <span>Sharma</span></h1>
+        <p class="lede">I build responsive websites with HTML, CSS and JavaScript. This portfolio is my 2-week Foundation project in the Up2Skilln Internship Program 2026&ndash;27.</p>
+        <div class="btns">
+          <a class="btn" href="#projects">View projects</a>
+          <a class="btn alt" href="#contact">Contact me</a>
+        </div>
+      </div>
+      <aside class="id-card" aria-label="Profile summary">
+        <div class="initials" aria-hidden="true">SS</div>
+        <p class="mono">Internship ID card</p>
+        <dl>
+          <div><dt>Track</dt><dd>Web Development, Level 1 of 4</dd></div>
+          <div><dt>Mentor</dt><dd>Pavani Agrawal</dd></div>
+          <div><dt>Duration</dt><dd>2 weeks</dd></div>
+        </dl>
+      </aside>
+    </div>
+    <div class="strip">
+      <div><h3>Responsive layouts</h3><p>Pages that adapt from a 360 px phone to a wide desktop screen.</p></div>
+      <div><h3>Clean, readable code</h3><p>Semantic HTML, organised CSS and plain JavaScript.</p></div>
+      <div><h3>Version control</h3><p>Work tracked with Git and published through GitHub.</p></div>
+    </div>
+  </section>
+
+  <section class="view" id="about" data-view="about" hidden>
+    <p class="eyebrow">About</p>
+    <h2 class="title">Who is Sumit?</h2>
+    <p class="lede">A student learning web development by building real pages, one project at a time.</p>
+    <div class="two">
+      <div class="panel">
+        <h3>Introduction</h3>
+        <p>I am Sumit Kumar Sharma, a [year] student at [College Name], studying [Course]. I joined the Up2Skilln internship to learn how websites are planned, built and deployed.</p>
+        <p>Interests: web design, problem solving and [add your interests].</p>
+      </div>
+      <div class="panel">
+        <h3>Journey</h3>
+        <ol class="timeline">
+          <li><b>Web Development Intern, Up2Skilln</b><small>2-week Foundation internship, 2026</small></li>
+          <li><b>[Course], [College Name]</b><small>[Start year] &ndash; present</small></li>
+          <li><b>Class XII, [School Name]</b><small>[Year]</small></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="view" id="skills" data-view="skills" hidden>
+    <p class="eyebrow">Skills</p>
+    <h2 class="title">What I learned in two weeks</h2>
+    <p class="lede">Levels are my own estimate of where I am today.</p>
+    <div class="two">
+      <div class="panel">
+        <h3>Technical</h3>
+        <div class="skill"><div class="skill-row"><span>HTML5</span><span>85%</span></div><div class="track"><div class="fill" style="width:85%"></div></div></div>
+        <div class="skill"><div class="skill-row"><span>CSS3 and responsive design</span><span>80%</span></div><div class="track"><div class="fill" style="width:80%"></div></div></div>
+        <div class="skill"><div class="skill-row"><span>JavaScript basics</span><span>65%</span></div><div class="track"><div class="fill" style="width:65%"></div></div></div>
+        <div class="skill"><div class="skill-row"><span>Git and GitHub</span><span>60%</span></div><div class="track"><div class="fill" style="width:60%"></div></div></div>
+      </div>
+      <div class="panel">
+        <h3>Tools</h3>
+        <div class="chips"><span class="chip">VS Code</span><span class="chip">Git</span><span class="chip">GitHub</span><span class="chip">Chrome DevTools</span><span class="chip">GitHub Pages</span></div>
+        <h3 class="sp">Working style</h3>
+        <div class="chips"><span class="chip">Problem solving</span><span class="chip">Time management</span><span class="chip">Teamwork</span><span class="chip">Clear communication</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="view" id="projects" data-view="projects" hidden>
+    <p class="eyebrow">Projects</p>
+    <h2 class="title">Things I have built</h2>
+    <p class="lede">The first one is this website. Add your other work below.</p>
+    <div class="grid3">
+      <article class="proj">
+        <span class="tag">Internship &middot; 2026</span>
+        <h3>Student Portfolio Website</h3>
+        <p>A responsive multi-view portfolio with navigation, a theme-aware design and a contact form with validation.</p>
+        <div class="chips"><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JavaScript</span></div>
+      </article>
+      <article class="proj todo">
+        <span class="tag">Add yours</span>
+        <h3>[Project 2 title]</h3>
+        <p>[One or two lines on a college or practice project.]</p>
+        <div class="chips"><span class="chip">[Tech]</span></div>
+      </article>
+      <article class="proj todo">
+        <span class="tag">Add yours</span>
+        <h3>[Project 3 title]</h3>
+        <p>[One or two lines on another project.]</p>
+        <div class="chips"><span class="chip">[Tech]</span></div>
+      </article>
+    </div>
+  </section>
+
+  <section class="view" id="contact" data-view="contact" hidden>
+    <p class="eyebrow">Contact</p>
+    <h2 class="title">Get in touch</h2>
+    <p class="lede">Questions, feedback or an opportunity? Send a note.</p>
+    <div class="two">
+      <div class="panel">
+        <h3>Details</h3>
+        <dl class="contact-list">
+          <div><dt>Name</dt><dd>Sumit Kumar Sharma</dd></div>
+          <div><dt>Email</dt><dd>[your email address]</dd></div>
+          <div><dt>Phone</dt><dd>[+91 00000 00000]</dd></div>
+          <div><dt>Location</dt><dd>[City, India]</dd></div>
+          <div><dt>Profiles</dt><dd>GitHub: [link] &middot; LinkedIn: [link]</dd></div>
+        </dl>
+      </div>
+      <div class="panel">
+        <h3>Message</h3>
+        <form id="contactForm" novalidate>
+          <div><label for="name">Name</label><input id="name" type="text" autocomplete="name" placeholder="Your name"><div class="err" id="e-name"></div></div>
+          <div><label for="email">Email</label><input id="email" type="email" autocomplete="email" placeholder="you@example.com"><div class="err" id="e-email"></div></div>
+          <div><label for="message">Message</label><textarea id="message" rows="5" placeholder="Write your message"></textarea><div class="err" id="e-message"></div></div>
+          <button class="btn" type="submit">Send message</button>
+          <div class="ok" id="ok" hidden>Your message passed validation. This demo form does not send mail yet, so please use the contact details on this page.</div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span>&copy; <span id="year"></span> Sumit Kumar Sharma</span>
+    <span>Up2Skilln Internship Program 2026&ndash;27 &middot; Web Development</span>
+  </footer>
+</main>
+
+<script>
+(function () {
+  var views = Array.prototype.slice.call(document.querySelectorAll("[data-view]"));
+  var links = Array.prototype.slice.call(document.querySelectorAll("[data-link]"));
+  var names = views.map(function (v) { return v.dataset.view; });
+
+  function show() {
+    var name = (location.hash || "").replace("#", "");
+    if (names.indexOf(name) < 0) name = "home";
+    views.forEach(function (v) { v.hidden = v.dataset.view !== name; });
+    links.forEach(function (a) {
+      if (a.dataset.link === name) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current");
+    });
+    window.scrollTo(0, 0);
+  }
+  window.addEventListener("hashchange", show);
+  show();
+
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  var form = document.getElementById("contactForm");
+  function check(id, bad, msg) {
+    var el = document.getElementById(id);
+    var err = document.getElementById("e-" + id);
+    var fail = bad(el.value.trim());
+    el.setAttribute("aria-invalid", fail ? "true" : "false");
+    err.textContent = fail ? msg : "";
+    return !fail;
+  }
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var a = check("name", function (v) { return v.length < 2; }, "Enter your name, at least 2 characters.");
+    var b = check("email", function (v) { return !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }, "Enter a valid email address.");
+    var c = check("message", function (v) { return v.length < 10; }, "Write at least 10 characters.");
+    var ok = document.getElementById("ok");
+    ok.hidden = !(a && b && c);
+    if (a && b && c) form.reset();
+  });
+})();
+</script>
+
+</body></html>
